@@ -8,3 +8,9 @@ variable "region" {
     type = string
     default = "sa-saopaulo-1"
 }
+
+variable "instance_name" {
+  description = "Nombre para mostrar de la instancia en OCI."
+  type        = string
+  default     = "learn-terraform"
+}

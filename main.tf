@@ -11,10 +11,18 @@ terraform { # configuraciones de terrraform
 # "oci session authenticate --region sa-saopaulo-1 --profile DEFAULT"
 # luego ingresamos "deafult" y el token ya se refresca y podemos levantar la infra
 
-provider "oci" { # definicion del proveedor a utilizar
-  region              = var.region
-  auth                = "SecurityToken" 
-  config_file_profile = "DEFAULT" # del archivo de config generado por la CLI de oci va a extraer la key para conectarse a OCI
+#provider "oci" { # definicion del proveedor a utilizar
+ # region              = var.region
+  #auth                = "SecurityToken" 
+  #config_file_profile = "DEFAULT" # del archivo de config generado por la CLI de oci va a extraer la key para conectarse a OCI
+#}
+
+provider "oci" {
+  tenancy_ocid = var.tenancy_ocid
+  user_ocid    = var.user_ocid
+  fingerprint  = var.fingerprint
+  private_key  = var.private_key
+  region       = var.region
 }
 
 resource "oci_core_vcn" "internal" { # definicion del recurso a utilizar. tipo de recurso / nombre
