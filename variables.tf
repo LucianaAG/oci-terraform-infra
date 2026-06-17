@@ -14,3 +14,24 @@ variable "instance_name" {
   type        = string
   default     = "learn-terraform"
 }
+
+variable "tenancy_ocid" {
+  description = "OCID del tenancy de OCI."
+  type        = string
+}
+
+variable "user_ocid" {
+  description = "OCID del usuario de OCI."
+  type        = string
+}
+
+variable "fingerprint" {
+  description = "Fingerprint de la API key de OCI."
+  type        = string
+}
+
+variable "private_key" {
+  description = "Contenido de la private key de OCI."
+  type        = string
+  sensitive   = true
+}
