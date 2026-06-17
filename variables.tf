@@ -15,6 +15,12 @@ variable "instance_name" {
   default     = "learn-terraform"
 }
 
+variable "instance_shape" {
+  description = "Shape de la instancia OCI."
+  type        = string
+  default     = "VM.Standard.E2.1.Micro"
+}
+
 variable "tenancy_ocid" {
   description = "OCID del tenancy de OCI."
   type        = string
