@@ -6,3 +6,4 @@ terraform.tfvars
 *.tfvars
 !*.auto.tfvars
 **/state.json
+**/.terraform/

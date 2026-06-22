@@ -1,3 +1,11 @@
+terraform {
+  required_providers {
+    oci = {
+      source  = "oracle/oci"
+      version = "~> 8.18.0"
+    }
+  }
+}
 
 #provider "oci" { # definicion del proveedor a utilizar
  # region              = var.region
