@@ -1,6 +1,6 @@
 terraform {
   cloud {
-    organization = "oci-devops-portfolio"
+    organization = "oci-infra-portfolio"
     workspaces {
       name = "oci-dev"
     }
