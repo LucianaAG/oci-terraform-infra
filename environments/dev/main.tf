@@ -28,3 +28,5 @@ module "compute" {
   instance_shape = var.instance_shape
   subnet_ids = module.network.subnet_ids
 }
+
+# trigger
