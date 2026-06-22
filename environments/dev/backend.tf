@@ -1,11 +1,12 @@
-terraform { # configuraciones de terrraform
+terraform {
   required_providers {
     oci = {
-      source = "oracle/oci"
+      source  = "oracle/oci"
+      version = "~> 8.18.0"
     }
   }
 
-  cloud { # conectamos nuestro proyecto local con HCP
+  cloud {
     organization = "oci-devops-portfolio"
 
     workspaces {
