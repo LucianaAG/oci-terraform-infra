@@ -5,13 +5,14 @@ terraform {
       version = "~> 8.18.0"
     }
   }
-}
 
-#provider "oci" { # definicion del proveedor a utilizar
- # region              = var.region
-  #auth                = "SecurityToken" 
-  #config_file_profile = "DEFAULT" # del archivo de config generado por la CLI de oci va a extraer la key para conectarse a OCI
-#}
+  cloud {
+    organization = "oci-infra-portfolio"
+    workspaces {
+      name = "oci-dev"
+    }
+  }
+}
 
 provider "oci" {
   tenancy_ocid = var.tenancy_ocid
@@ -25,16 +26,14 @@ module "network" {
   source = "../../modules/network"
 
   compartment_id = var.compartment_id
-  subnets = var.subnets
+  subnets        = var.subnets
 }
 
 module "compute" {
   source = "../../modules/compute"
 
   compartment_id = var.compartment_id
-  instance_name = var.instance_name
+  instance_name  = var.instance_name
   instance_shape = var.instance_shape
-  subnet_ids = module.network.subnet_ids
+  subnet_ids     = module.network.subnet_ids
 }
-
-# trigger
