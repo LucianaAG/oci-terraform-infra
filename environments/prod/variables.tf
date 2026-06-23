@@ -1,3 +1,8 @@
+variable "vcn_cidr" {
+  description = "CIDR block para la VCN"
+  type = string
+}
+
 variable "user_ocid" {
   description = "OCID del usuario de OCI."
   type        = string

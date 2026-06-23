@@ -25,6 +25,11 @@ variable "region" {
     default = "sa-saopaulo-1"
 }
 
+variable "vcn_cidr" {
+  description = "CIDR block para la VCN"
+  type = string
+}
+
 variable "compartment_id" {
     description = "OCI from my tenancy page"
     type = string

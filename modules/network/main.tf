@@ -1,6 +1,6 @@
 resource "oci_core_vcn" "internal" { # definicion del recurso a utilizar. tipo de recurso / nombre
   dns_label      = "internal"
-  cidr_block     = "172.16.0.0/20"
+  cidr_block     = var.vcn_cidr
   compartment_id = var.compartment_id
   display_name   = "my internal VCN"
 }

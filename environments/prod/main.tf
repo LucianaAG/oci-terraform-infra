@@ -25,6 +25,7 @@ module "network" {
 
   compartment_id = var.compartment_id
   subnets = var.subnets
+  vcn_cidr = var.vcn_cidr
 }
 
 module "compute" {

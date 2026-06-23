@@ -11,3 +11,8 @@ variable "subnets" {
     is_public = bool
   }))
 }
+
+variable "vcn_cidr" {
+  description = "CIDR block para la VCN"
+  type = string
+}

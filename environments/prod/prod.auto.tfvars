@@ -1,6 +1,8 @@
 # Este archivo contiene los valores para las configuraciones especificas por entorno
 # Como el shape, rango IP, nombre de las instancias, etc.
 
+vcn_cidr = "10.0.0.0/20"
+
 subnets = { # datos de configuración para crear las subnets
 
     dev = {
