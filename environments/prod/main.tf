@@ -4,14 +4,6 @@ terraform { # configuraciones de terrraform
       source = "oracle/oci"
     }
   }
-
-  cloud { # conectamos nuestro proyecto local con HCP
-    organization = "oci-devops-portfolio"
-
-    workspaces {
-      name = "oci-prod"
-    }
-  }
 }
 
 #provider "oci" { # definicion del proveedor a utilizar

@@ -5,13 +5,6 @@ terraform {
       version = "~> 8.18.0"
     }
   }
-
-  cloud {
-    organization = "oci-infra-portfolio"
-    workspaces {
-      name = "oci-dev"
-    }
-  }
 }
 
 provider "oci" {
