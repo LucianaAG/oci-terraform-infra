@@ -31,3 +31,10 @@ module "compute" {
   instance_shape = var.instance_shape
   subnet_ids     = module.network.subnet_ids
 }
+
+module "iam" {
+  source = "../../modules/iam"
+  
+  tenancy_ocid = var.tenancy_ocid
+  env = var.env
+}

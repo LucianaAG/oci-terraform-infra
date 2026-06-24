@@ -58,3 +58,8 @@ variable "subnets" {
     is_public = bool
   }))
 }
+
+variable "env" {
+    description = "Entorno donde aplicar los recursos"
+    type = string
+}

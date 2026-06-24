@@ -3,6 +3,8 @@
 
 vcn_cidr = "10.0.0.0/20"
 
+env = "prod"
+
 subnets = { # datos de configuración para crear las subnets
 
     dev = {

@@ -1,0 +1,8 @@
+hclterraform {
+  required_providers {
+    oci = {
+      source  = "oracle/oci"
+      version = "~> 8.18.0"
+    }
+  }
+}
