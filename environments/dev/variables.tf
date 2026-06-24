@@ -63,3 +63,9 @@ variable "env" {
   description = "Entorno donde aplicar los recursos"
   type        = string
 }
+
+variable "tags" {
+  description = "Tag para los recursos"
+  type        = map(string)
+  default     = {}
+}

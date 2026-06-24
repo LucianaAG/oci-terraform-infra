@@ -1,6 +1,6 @@
 variable "compartment_id" {
-    description = "OCI from my tenancy page"
-    type = string
+  description = "OCI from my tenancy page"
+  type        = string
 }
 
 variable "instance_name" {
@@ -17,5 +17,11 @@ variable "instance_shape" {
 
 variable "subnet_ids" { # OCI genera automaticamente los IDs de las subnets al generarlas
   description = "Id de la subnet"
-  type = map(string)
+  type        = map(string)
+}
+
+variable "tags" {
+  description = "Tags para aplicar a los recursos"
+  type        = map(string)
+  default     = {}
 }

@@ -16,6 +16,7 @@ resource "oci_core_instance" "app_server" {
   display_name        = var.instance_name
   shape               = var.instance_shape
   availability_domain = data.oci_identity_availability_domains.ads.availability_domains[0].name
+  freeform_tags       = var.tags
 
   source_details {
     source_type = "image"
@@ -23,7 +24,7 @@ resource "oci_core_instance" "app_server" {
   }
 
   create_vnic_details {
-    subnet_id        = var.subnet_ids["dev"]
+    subnet_id        = values(var.subnet_ids)[0]
     assign_public_ip = true
   }
 }

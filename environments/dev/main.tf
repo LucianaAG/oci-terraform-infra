@@ -21,6 +21,7 @@ module "network" {
   compartment_id = var.compartment_id
   subnets        = var.subnets
   vcn_cidr       = var.vcn_cidr
+  tags           = var.tags
 }
 
 module "compute" {
@@ -30,6 +31,7 @@ module "compute" {
   instance_name  = var.instance_name
   instance_shape = var.instance_shape
   subnet_ids     = module.network.subnet_ids
+  tags           = var.tags
 }
 
 module "iam" {
@@ -37,4 +39,5 @@ module "iam" {
 
   tenancy_ocid = var.tenancy_ocid
   env          = var.env
+  tags         = var.tags
 }

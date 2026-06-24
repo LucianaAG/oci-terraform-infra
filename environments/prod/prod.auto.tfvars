@@ -7,16 +7,22 @@ env = "prod"
 
 subnets = { # datos de configuración para crear las subnets
 
-  dev = {
+  prod = {
     cidr      = "172.16.0.0/24"
     dns_label = "principal_prod_vcn"
     is_public = true
   }
 
-  dev2 = {
+  prod2 = {
     cidr      = "172.16.1.0/24"
     dns_label = "secondary_prod_vcn"
     is_public = true
   }
 
+}
+
+tags = {
+  "environment" = "prod"
+  "managed-by"  = "terraform"
+  "project"     = "oci-terraform-infra"
 }

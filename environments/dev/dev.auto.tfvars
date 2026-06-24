@@ -21,3 +21,10 @@ subnets = { # datos de configuración para crear las subnets
   }
 
 }
+
+tags = {
+  "environment" = "dev"
+  "managed-by"  = "terraform"
+  "project"     = "oci-terraform-infra"
+}
+
