@@ -5,6 +5,38 @@ resource "oci_core_vcn" "internal" { # definicion del recurso a utilizar. tipo d
   display_name   = "my internal VCN"
 }
 
+resource "oci_core_security_list" "public_sl" {
+  compartment_id = var.compartment_id
+  vcn_id = oci_core_vcn.internal.id
+  display_name = "public security list"
+
+  # trafico saliente 
+  egress_security_rules {
+    destination = "0.0.0.0/0"
+    protocol = "all"
+  }
+
+  # trafico entrante SSH
+  ingress_security_rules {
+    protocol = "6" # TCP
+    source = "0.0.0.0/0"
+    tcp_options {
+      min = 22
+      max = 22
+    }
+  }
+
+  # trafico entrante HTTP
+  ingress_security_rules {
+    protocol = "6"
+    source = "0.0.0.0/0"
+    tcp_options {
+      min = 80
+      max = 80
+    }
+  }
+}
+
 # internet gateway
 resource "oci_core_internet_gateway" "igw" {
   compartment_id = var.compartment_id
@@ -38,6 +70,7 @@ resource "oci_core_subnet" "this" {
   prohibit_public_ip_on_vnic = !each.value.is_public
   dns_label = each.value.dns_label
   route_table_id = oci_core_route_table.public_rt.id
+  security_list_ids = [oci_core_security_list.public_sl.id]
 }
 
 

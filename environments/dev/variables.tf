@@ -1,3 +1,6 @@
+# Le dice al entorno dev qué variables espera recibir. Incluye todo lo que el main.tf de dev usa
+# tanto las credenciales como las variables que pasa a los módulos.
+
 variable "user_ocid" {
   description = "OCID del usuario de OCI."
   type        = string

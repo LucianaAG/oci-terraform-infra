@@ -1,3 +1,6 @@
+# Este archivo le dice al main.tf que datos necesita recibir para poder funcionar
+# Es como la firma de una funcion. Declara los parametros que debe aceptar
+
 variable "compartment_id" {
     description = "OCI from my tenancy page"
     type = string
