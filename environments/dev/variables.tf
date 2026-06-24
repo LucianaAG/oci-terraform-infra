@@ -23,19 +23,19 @@ variable "private_key" {
 }
 
 variable "region" {
-    description = "region where i have OCI tenancy" 
-    type = string
-    default = "sa-saopaulo-1"
+  description = "region where i have OCI tenancy"
+  type        = string
+  default     = "sa-saopaulo-1"
 }
 
 variable "vcn_cidr" {
   description = "CIDR block para la VCN"
-  type = string
+  type        = string
 }
 
 variable "compartment_id" {
-    description = "OCI from my tenancy page"
-    type = string
+  description = "OCI from my tenancy page"
+  type        = string
 }
 
 variable "instance_name" {
@@ -53,13 +53,13 @@ variable "instance_shape" {
 # objeto map (solamente agregamos los datos individuales de cada subnet)
 variable "subnets" {
   type = map(object({
-    cidr = string
+    cidr      = string
     dns_label = string
     is_public = bool
   }))
 }
 
 variable "env" {
-    description = "Entorno donde aplicar los recursos"
-    type = string
+  description = "Entorno donde aplicar los recursos"
+  type        = string
 }

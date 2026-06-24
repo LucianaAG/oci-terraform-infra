@@ -7,9 +7,9 @@ terraform { # configuraciones de terrraform
 }
 
 #provider "oci" { # definicion del proveedor a utilizar
- # region              = var.region
-  #auth                = "SecurityToken" 
-  #config_file_profile = "DEFAULT" # del archivo de config generado por la CLI de oci va a extraer la key para conectarse a OCI
+# region              = var.region
+#auth                = "SecurityToken" 
+#config_file_profile = "DEFAULT" # del archivo de config generado por la CLI de oci va a extraer la key para conectarse a OCI
 #}
 
 provider "oci" {
@@ -24,22 +24,22 @@ module "network" {
   source = "../../modules/network"
 
   compartment_id = var.compartment_id
-  subnets = var.subnets
-  vcn_cidr = var.vcn_cidr
+  subnets        = var.subnets
+  vcn_cidr       = var.vcn_cidr
 }
 
 module "compute" {
   source = "../../modules/compute"
 
   compartment_id = var.compartment_id
-  instance_name = var.instance_name
+  instance_name  = var.instance_name
   instance_shape = var.instance_shape
-  subnet_ids = module.network.subnet_ids
+  subnet_ids     = module.network.subnet_ids
 }
 
 module "iam" {
-  source "../../modules/iam"
+  source = "../../modules/iam"
 
   tenancy_ocid = var.tenancy_ocid
-  env = var.env
+  env          = var.env
 }

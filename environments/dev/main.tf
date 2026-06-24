@@ -20,7 +20,7 @@ module "network" {
 
   compartment_id = var.compartment_id
   subnets        = var.subnets
-  vcn_cidr = var.vcn_cidr
+  vcn_cidr       = var.vcn_cidr
 }
 
 module "compute" {
@@ -34,7 +34,7 @@ module "compute" {
 
 module "iam" {
   source = "../../modules/iam"
-  
+
   tenancy_ocid = var.tenancy_ocid
-  env = var.env
+  env          = var.env
 }
