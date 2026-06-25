@@ -2,8 +2,6 @@
 
 Infra en OCI manejada con Terraform. Dos entornos (dev y prod), módulos separados por tipo de recurso y state remoto en HCP.
 
----
-
 ## Qué levanta
 
 Cada entorno despliega lo siguiente dentro de su propio compartment:
@@ -13,8 +11,6 @@ Cada entorno despliega lo siguiente dentro de su propio compartment:
 - Security List con acceso por SSH (22) y HTTP (80)
 - Instancia de cómputo con Oracle Linux 8
 - Grupo IAM y policy para el entorno
-
----
 
 ## Estructura
 
@@ -37,15 +33,11 @@ oci-terraform-infra/
     └── iam/        # grupo y policy por entorno
 ```
 
----
-
 ## Requisitos
 
 - Terraform >= 1.5
 - Cuenta en OCI con API Key en formato RSA
 - Dos workspaces en HCP Terraform (`oci-dev` y `oci-prod`) conectados a este repo
-
----
 
 ## Cómo usarlo
 
@@ -72,8 +64,6 @@ terraform init
 terraform plan
 ```
 
----
-
 ## Variables por entorno
 
 Se definen en el `auto.tfvars` de cada entorno y sí van al repo porque no son sensibles.
@@ -83,8 +73,6 @@ Se definen en el `auto.tfvars` de cada entorno y sí van al repo porque no son s
 | `vcn_cidr` | `172.16.0.0/20` | `10.0.0.0/20` |
 | `instance_shape` | `VM.Standard.E2.1.Micro` | `VM.Standard.A1.Flex` |
 | `env` | `dev` | `prod` |
-
----
 
 ## Por qué está hecho así
 
@@ -99,8 +87,6 @@ Las variables sensibles viven en HCP. El repo no tiene ningún secret, se puede 
 
 **`versions.tf` en cada módulo**
 Sin esto, HCP resuelve el provider OCI como `hashicorp/oci` (deprecado) en lugar de `oracle/oci`. Cada módulo lo declara explícitamente para evitar ese problema.
-
----
 
 ## Próximo
 
