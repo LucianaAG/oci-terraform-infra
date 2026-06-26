@@ -66,8 +66,3 @@ variable "tags" {
   type        = map(string)
   default     = {}
 }
-
-variable "user_ocid" {
-  description = "OCID del usuario de servicio del entorno"
-  type        = string
-}
