@@ -45,4 +45,5 @@ module "iam" {
   tenancy_ocid = var.tenancy_ocid
   env          = var.env
   tags         = var.tags
+  user_ocid    = var.user_ocid
 }
